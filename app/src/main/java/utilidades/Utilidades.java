@@ -16,8 +16,16 @@ public class Utilidades {
     public static final String POTENCIA_MAX = "cargo_potencia_maxima";
     public static final String ALUMBRADO_PUB = "alumbrado_publico";
 
-    public static final String CREAR_TABLA_TARIFA = "CREATE TABLE "+ TABLA_TARIFA +"("+ID_TIPO+" INTEGER, "+TIPO+" TEXT,"+VALOR_INI+" INTEGER," +
-            " "+VALOR_FIN+" INTEGER, "+VALOR+" DOUBLE, "+CARGO_FIJO+" DOUBLE, "+POTENCIA_CON+" DOUBLE,"+POTENCIA_MAX+" DOUBLE, "+ALUMBRADO_PUB+" DOUBLE)";
+    public static final String CREAR_TABLA_TARIFA = "CREATE TABLE "+ TABLA_TARIFA +"("
+                                                        +ID_TIPO+" INTEGER, "
+                                                        +TIPO+" TEXT,"
+                                                        +VALOR_INI+" INTEGER,"
+                                                        +VALOR_FIN+" INTEGER, "
+                                                        +VALOR+" DOUBLE, "
+                                                        +CARGO_FIJO+" DOUBLE, "
+                                                        +POTENCIA_CON+" DOUBLE,"
+                                                        +POTENCIA_MAX+" DOUBLE, "
+                                                        +ALUMBRADO_PUB+" DOUBLE)";
 
     // Constantes campos de tabla Lectura
 
@@ -33,7 +41,7 @@ public class Utilidades {
     public static final String MARCHAMO = "marchamo";
     public static final String TIPO_SERVICIO = "tipo_servicio";
     public static final String PERSONA = "idpersona";
-    public static final String VOLTAJE = "voltios";
+    public static final String VOLTAJE = "voltios_solicitados";
     public static final String LEC_ACUMULADA = "lectura_acumulada";
     public static final String ESTADO = "estado";
     public static final String ZONA = "zona";
@@ -46,10 +54,30 @@ public class Utilidades {
     public static final String LATITUD = "latitud";
     public static final String LONGITUD = "longitud";
 
-    public static final String CREAR_TABLA_CUENTA = "CREATE TABLE "+ TABLA_CUENTA +"("+ID_CUENTA+" INTEGER PRIMARY KEY, "+CLAVE+" TEXT,"+NO_CONTADOR+" TEXT," +
-            " "+DIRECCION+" TEXT, "+BARRIO+" INTEGER, "+ORDEN+" INTEGER, "+MARCHAMO+" TEXT,"+TIPO_SERVICIO+" TEXT, "+PERSONA+" INTEGER, "+VOLTAJE+" INTEGER," +
-            " "+LEC_ACUMULADA+" INTEGER, "+ESTADO+" TEXT, "+ZONA+" TEXT, "+DIA+" INTEGER, "+REF+" TEXT,"+USUARIO+" TEXT,"+FECHA+" DATE,"+POTENCIA_CONTRATADA+" INTEGER," +
-            " "+POSTE+" TEXT, "+LATITUD+" TEXT, "+LONGITUD+" TEXT)";
+    public static final String CREAR_TABLA_CUENTA = "CREATE TABLE "+ TABLA_CUENTA +"("
+                                                        +ID_CUENTA+" INTEGER PRIMARY KEY, "
+                                                        +CLAVE+" TEXT,"
+                                                        +NO_CONTADOR+" TEXT, "
+                                                        +DIRECCION+" TEXT, "
+                                                        +BARRIO+" INTEGER, "
+                                                        +ORDEN+" INTEGER, "
+                                                        +MARCHAMO+" TEXT,"
+                                                        +TIPO_SERVICIO+" TEXT, "
+                                                        +PERSONA+" INTEGER, "
+                                                        +VOLTAJE+" INTEGER, "
+                                                        +LEC_ACUMULADA+" INTEGER, "
+                                                        +ESTADO+" TEXT, "
+                                                        +ZONA+" TEXT, "
+                                                        +DIA+" INTEGER, "
+                                                        +REF+" TEXT, "
+                                                        +USUARIO+" TEXT,"
+                                                        +FECHA+" DATE,"
+                                                        +POTENCIA_CONTRATADA+" INTEGER,"
+                                                        +POSTE+" TEXT, "
+                                                        +LATITUD+" TEXT, "
+                                                        +LONGITUD+" TEXT"
+                                                    + ")";
 
     // Constantes campos de tabla Persona
+    
 }
