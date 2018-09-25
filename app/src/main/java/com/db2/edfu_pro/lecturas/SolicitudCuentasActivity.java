@@ -14,7 +14,6 @@ import controladores.ConexionSQLite;
 import controladores.CuentaController;
 import interfaces.CuentaService;
 import modelos.Cuenta;
-import modelos.Peticion;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,7 +26,7 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
     private ConexionSQLite conn;
     private EditText et_lector, et_dia;
     private Button btn1;
-    private final String baseUrl = "http://192.168.1.154:3000/";
+    private final String baseUrl = "http://192.168.1.40:3000/";
     private List<Cuenta> cuentas = new ArrayList<>();
 
 
@@ -57,7 +56,6 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                 String dia = et_dia.getText().toString().trim();
 
                 if(!lector.isEmpty() && !dia.isEmpty()){
-                    //Peticion peticion = new Peticion(Integer.parseInt(dia),lector);
                     Call<List<Cuenta>> lista = cuentaService.getCuentas(lector,Integer.parseInt(dia));
                     lista.enqueue(new Callback<List<Cuenta>>() {
                         @Override
