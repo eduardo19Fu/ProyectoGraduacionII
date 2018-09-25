@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Lecturas</string>
+    <string name="txt_view_ingreso">Ingreso de Usuario</string>
+    <string name="txt_hint_usuario">Usuario</string>
+    <string name="txt_hint_password">Password</string>
+    <string name="button_ingreso">Ingresar</string>
+    <string name="title_activity_principal">Principal</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Recolector de Lecturas</string>
+    <string name="nav_header_subtitle">Empresa Eléctrica Municipal de Jalapa</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="item_cuentas">Cuentas</string>
+    <string name="item_tarifas">Tarifas</string>
+    <string name="item_sesion">Cerrar Sesion</string>
+
+    <!-- Strings Fragment Tarifas -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_social">Tarifa Social</string>
+    <string name="btn_no_social">Tarifa No Social</string>
+    <string name="btn_fuera_punta">Demanda Fuera de Punta</string>
+    <string name="btn_punta">Demanda en Punta</string>
+
+    <!-- Strings Activity Social -->
+    <string name="txt_titulo">Registro de Tarifa</string>
+    <string name="txt_valor_kw">Cargo por Energía</string>
+    <string name="txt_cargo_fijo">Cargo por Consumidor</string>
+    <string name="txt_alumbrado">Alumbrado Público</string>
+    <string name="txt_potencia_maxima">Potencia Máxima</string>
+    <string name="txt_potencia_contratada">Potencia Contratada</string>
+    <string name="btn_guardar">Guardar</string>
+
+    <!-- String Fragment Cuentas -->
+    <string name="tv_titulo">Módulo de Cuentas</string>
+    <string name="btn_solicitar">Solicitar Cuentas</string>
+    <string name="btn_listar">Listar Cuentas</string>
+    <string name="txt_lector">Lector</string>
+    <string name="txt_dia_visita">Dia de Visita</string>
+
+</resources>
