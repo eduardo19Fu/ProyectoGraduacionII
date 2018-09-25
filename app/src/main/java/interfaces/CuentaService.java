@@ -14,10 +14,11 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface CuentaService {
 
-    @Headers("Content-Type: application/json")
-    @POST("/cuenta")
-    Call<List<Cuenta>> savePost(@Body Peticion peticion);
+
+    @GET("/cuenta")
+    Call<List<Cuenta>> getCuentas(@Query("usuario_lectura") String lector, @Query("dia") int dia);
 }

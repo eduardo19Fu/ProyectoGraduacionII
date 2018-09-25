@@ -27,7 +27,7 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
     private ConexionSQLite conn;
     private EditText et_lector, et_dia;
     private Button btn1;
-    private final String baseUrl = "http://192.168.43.88:3030/";
+    private final String baseUrl = "http://192.168.1.154:3000/";
     private List<Cuenta> cuentas = new ArrayList<>();
 
 
@@ -57,8 +57,8 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                 String dia = et_dia.getText().toString().trim();
 
                 if(!lector.isEmpty() && !dia.isEmpty()){
-                    Peticion peticion = new Peticion(Integer.parseInt(dia),lector);
-                    Call<List<Cuenta>> lista = cuentaService.savePost(peticion);
+                    //Peticion peticion = new Peticion(Integer.parseInt(dia),lector);
+                    Call<List<Cuenta>> lista = cuentaService.getCuentas(lector,Integer.parseInt(dia));
                     lista.enqueue(new Callback<List<Cuenta>>() {
                         @Override
                         public void onResponse(Call<List<Cuenta>> call, Response<List<Cuenta>> response) {

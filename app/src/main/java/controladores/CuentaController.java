@@ -2,6 +2,7 @@ package controladores;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class CuentaController {
         long rs = 0;
         for(int i = 0; i < cuentas.size(); i++){
             registro.put("idcuenta",cuentas.get(i).getIdcuenta());
+            Log.i("cuenta",String.valueOf(cuentas.get(i).getIdcuenta()));
             registro.put("clave",cuentas.get(i).getClave());
             registro.put("no_contador",cuentas.get(i).getNo_contador());
             registro.put("direccion",cuentas.get(i).getDireccion());
