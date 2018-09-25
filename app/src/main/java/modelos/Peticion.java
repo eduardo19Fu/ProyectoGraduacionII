@@ -14,15 +14,8 @@ public class Peticion {
         return dia_visita;
     }
 
-    public void setDia_visita(int dia_visita) {
-        this.dia_visita = dia_visita;
-    }
-
     public String getUsuario_lectura() {
         return usuario_lectura;
     }
 
-    public void setUsuario_lectura(String usuario_lectura) {
-        this.usuario_lectura = usuario_lectura;
-    }
 }

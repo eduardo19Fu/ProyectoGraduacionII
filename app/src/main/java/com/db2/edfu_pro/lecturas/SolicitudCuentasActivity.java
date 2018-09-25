@@ -57,8 +57,8 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                 String dia = et_dia.getText().toString().trim();
 
                 if(!lector.isEmpty() && !dia.isEmpty()){
-//                    Peticion peticion = new Peticion(Integer.parseInt(dia),lector);
-                    Call<List<Cuenta>> lista = cuentaService.savePost(Integer.parseInt(dia),lector);
+                    Peticion peticion = new Peticion(Integer.parseInt(dia),lector);
+                    Call<List<Cuenta>> lista = cuentaService.savePost(peticion);
                     lista.enqueue(new Callback<List<Cuenta>>() {
                         @Override
                         public void onResponse(Call<List<Cuenta>> call, Response<List<Cuenta>> response) {
