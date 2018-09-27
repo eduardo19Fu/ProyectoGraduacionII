@@ -12,8 +12,10 @@ import java.util.List;
 
 import controladores.ConexionSQLite;
 import controladores.CuentaController;
+import controladores.PersonaController;
 import interfaces.CuentaService;
 import modelos.Cuenta;
+import modelos.Persona;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,8 +28,10 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
     private ConexionSQLite conn;
     private EditText et_lector, et_dia;
     private Button btn1;
-    private final String baseUrl = "http://192.168.1.40:3000/";
+    private final String baseUrl = "http://192.168.1.154:3000/";
     private List<Cuenta> cuentas = new ArrayList<>();
+    private List<Persona> personas = new ArrayList<>();
+
 
 
     @Override
@@ -78,12 +82,39 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                             Toast.makeText(getBaseContext(),"petición fallo",Toast.LENGTH_LONG).show();
                         }
                     });
+
+                    Call<List<Persona>> lista_2 = cuentaService.getPersonas(lector,Integer.parseInt(dia));
+                    lista_2.enqueue(new Callback<List<Persona>>() {
+                        @Override
+                        public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
+                            if(response.isSuccessful()){
+                                personas = response.body();
+                                PersonaController persona = new PersonaController(conn);
+                                if(persona.create(personas) > 0){
+                                    Toast.makeText(getBaseContext(),"", Toast.LENGTH_SHORT);
+                                }else{
+                                    Toast.makeText(getBaseContext(),"Personas no pudieron ser agregadas", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Persona>> call, Throwable t) {
+                            Toast.makeText(getBaseContext(),"petición fallo",Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }else{
                     Toast.makeText(getBaseContext(),"Rellene todos los campos.", Toast.LENGTH_LONG);
                 }
             }
         });
+    }
 
+    private void cargarCuentas(){
+
+    }
+
+    private void cargarPersonas(){
 
     }
 }

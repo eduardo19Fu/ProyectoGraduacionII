@@ -79,5 +79,17 @@ public class Utilidades {
                                                     + ")";
 
     // Constantes campos de tabla Persona
-    
+    public static final String TABLA_PERSONA = "persona";
+    public static final String ID_PERSONA = "idpersona";
+    public static final String NOMBRE = "nombre";
+    public static final String APELLIDO = "apellido";
+    public static final String FECHA_CREACION = "fecha_creacion";
+    public static final String NIT = "nit";
+    public static final String IDENTIFICACION = "identificacion";
+    public static final String TIPO_IDENTIFICACION = "tipo_identificacion";
+    public static final String CORREO_ELECTRONICA = "correo_electronico";
+    public static final String TELEFONO = "telefono";
+
+    public static final String CREAR_TABLA_PERSONA = "CREATE TABLE " + TABLA_PERSONA + "("
+                                                        +ID_PERSONA + "INTEGER PRIMARY KEY, ";
 }

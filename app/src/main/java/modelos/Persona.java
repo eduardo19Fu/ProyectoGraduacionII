@@ -1,29 +1,51 @@
 package modelos;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class Persona {
 
-    private Cuenta cuenta;
+    @SerializedName("idpersona")
+    @Expose
+    private int idpersona;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
+    @SerializedName("apellido")
+    @Expose
     private String apellido;
+    @SerializedName("fecha_creacion")
+    @Expose
     private Date fecha_creacion;
+    @SerializedName("nit")
+    @Expose
     private String nit;
+    @SerializedName("identificacion")
+    @Expose
     private String identificacion;
+    @SerializedName("tipo_identificacion")
+    @Expose
     private String tipo_identificacion;
+    @SerializedName("correo_electronico")
+    @Expose
     private String correo_electronico;
+    @SerializedName("telefono")
+    @Expose
     private String telefono;
 
     public Persona(){
 
     }
 
-    public void setCuenta(Cuenta cuenta){
-        this.cuenta = cuenta;
+
+    public void setIdpersona(int idpersona){
+        this.idpersona = idpersona;
     }
 
-    public Cuenta getCuenta(){
-        return this.cuenta;
+    public int getIdpersona(){
+        return this.idpersona;
     }
 
     public void setNombre(String nombre){

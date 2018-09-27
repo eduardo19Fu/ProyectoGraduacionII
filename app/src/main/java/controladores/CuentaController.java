@@ -19,7 +19,6 @@ public class CuentaController {
 
     public long create(List<Cuenta> cuentas){
         SQLiteDatabase BaseDatos = conexion.getWritableDatabase();
-        //Cursor c = BaseDatos.rawQuery("select * from cuenta where ")
 
         long rs = 0;
         for(int i = 0; i < cuentas.size(); i++){
