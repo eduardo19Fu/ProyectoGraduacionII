@@ -12,8 +12,10 @@ import java.util.List;
 
 import controladores.ConexionSQLite;
 import controladores.CuentaController;
+import controladores.PersonaController;
 import interfaces.CuentaService;
 import modelos.Cuenta;
+import modelos.Persona;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,8 +28,10 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
     private ConexionSQLite conn;
     private EditText et_lector, et_dia;
     private Button btn1;
-    private final String baseUrl = "http://192.168.1.40:3000/";
+    private final String baseUrl = "http://192.168.1.154:3000/";
     private List<Cuenta> cuentas = new ArrayList<>();
+    private List<Persona> personas = new ArrayList<>();
+
 
 
     @Override
@@ -37,25 +41,32 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
 
         conn = new ConexionSQLite(this,"sigees_db",null,1);
 
+        // Declaramos un objeto Retrofit() para realizar las peticiones a nuestra API REST
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(baseUrl) // Pasamos nuestra URL base como parametro
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        // Declaramos una instancia de nuestra Interface que se encargará del manejo de Verbos y variables en la peticion.
         final CuentaService cuentaService = retrofit.create(CuentaService.class);
 
+        // Inicializamos nuestras variables de comunicación con la interfaz gráfica.
         et_lector = (EditText) findViewById(R.id.txt_lector);
         et_dia = (EditText) findViewById(R.id.txt_dia);
         btn1 = (Button) findViewById(R.id.btn_enviar);
 
+        // Programamos en evento de click para el boton de reicibr cuentas
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Almacenamos en variables de texto los valores ingresados por el usuario de la aplicación
                 String lector = et_lector.getText().toString().trim();
                 String dia = et_dia.getText().toString().trim();
 
+                // Validamos que ningun parametro ingresado este vacio
                 if(!lector.isEmpty() && !dia.isEmpty()){
+                    // Llamada realizada al metodo getCuentas() de la interfaz CuentaService
                     Call<List<Cuenta>> lista = cuentaService.getCuentas(lector,Integer.parseInt(dia));
                     lista.enqueue(new Callback<List<Cuenta>>() {
                         @Override
@@ -78,12 +89,40 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                             Toast.makeText(getBaseContext(),"petición fallo",Toast.LENGTH_LONG).show();
                         }
                     });
+
+                    // Llamada realizada al metodo getPersonas() de la interfaz CuentaService
+                    Call<List<Persona>> lista_2 = cuentaService.getPersonas(lector,Integer.parseInt(dia));
+                    lista_2.enqueue(new Callback<List<Persona>>() {
+                        @Override
+                        public void onResponse(Call<List<Persona>> call, Response<List<Persona>> response) {
+                            if(response.isSuccessful()){
+                                personas = response.body();
+                                PersonaController persona = new PersonaController(conn);
+                                if(persona.create(personas) > 0){
+                                    Toast.makeText(getBaseContext(),"", Toast.LENGTH_SHORT);
+                                }else{
+                                    Toast.makeText(getBaseContext(),"Personas no pudieron ser agregadas", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Persona>> call, Throwable t) {
+                            Toast.makeText(getBaseContext(),"petición fallo",Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }else{
                     Toast.makeText(getBaseContext(),"Rellene todos los campos.", Toast.LENGTH_LONG);
                 }
             }
         });
+    }
 
+    private void cargarCuentas(){
+
+    }
+
+    private void cargarPersonas(){
 
     }
 }

@@ -19,12 +19,14 @@ public class ConexionSQLite extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sigees) {
         sigees.execSQL(Utilidades.CREAR_TABLA_TARIFA);
         sigees.execSQL(Utilidades.CREAR_TABLA_CUENTA);
+        sigees.execSQL(Utilidades.CREAR_TABLA_PERSONA);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sigees, int versionAntigua, int versionNueva) {
         sigees.execSQL("DROP TABLE IF EXISTS tarifa");
         sigees.execSQL("DROP TABLE IF EXISTS cuenta");
+        sigees.execSQL("DROP TABLE IF EXISTS persona");
         onCreate(sigees);
     }
 }
