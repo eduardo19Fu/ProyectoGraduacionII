@@ -37,7 +37,8 @@ public class CuentasFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),ListaCuentasActivity.class);
+                startActivity(intent);
             }
         });
 

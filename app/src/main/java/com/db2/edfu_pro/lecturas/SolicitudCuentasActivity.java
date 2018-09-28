@@ -41,25 +41,32 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
 
         conn = new ConexionSQLite(this,"sigees_db",null,1);
 
+        // Declaramos un objeto Retrofit() para realizar las peticiones a nuestra API REST
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(baseUrl) // Pasamos nuestra URL base como parametro
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        // Declaramos una instancia de nuestra Interface que se encargará del manejo de Verbos y variables en la peticion.
         final CuentaService cuentaService = retrofit.create(CuentaService.class);
 
+        // Inicializamos nuestras variables de comunicación con la interfaz gráfica.
         et_lector = (EditText) findViewById(R.id.txt_lector);
         et_dia = (EditText) findViewById(R.id.txt_dia);
         btn1 = (Button) findViewById(R.id.btn_enviar);
 
+        // Programamos en evento de click para el boton de reicibr cuentas
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Almacenamos en variables de texto los valores ingresados por el usuario de la aplicación
                 String lector = et_lector.getText().toString().trim();
                 String dia = et_dia.getText().toString().trim();
 
+                // Validamos que ningun parametro ingresado este vacio
                 if(!lector.isEmpty() && !dia.isEmpty()){
+                    // Llamada realizada al metodo getCuentas() de la interfaz CuentaService
                     Call<List<Cuenta>> lista = cuentaService.getCuentas(lector,Integer.parseInt(dia));
                     lista.enqueue(new Callback<List<Cuenta>>() {
                         @Override
@@ -83,6 +90,7 @@ public class SolicitudCuentasActivity extends AppCompatActivity {
                         }
                     });
 
+                    // Llamada realizada al metodo getPersonas() de la interfaz CuentaService
                     Call<List<Persona>> lista_2 = cuentaService.getPersonas(lector,Integer.parseInt(dia));
                     lista_2.enqueue(new Callback<List<Persona>>() {
                         @Override

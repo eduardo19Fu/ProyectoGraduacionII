@@ -27,7 +27,8 @@
         <activity android:name=".NoSocialActivity" />
         <activity android:name=".DemandaActivity" />
         <activity android:name=".DemandaFueraActivity" />
-        <activity android:name=".SolicitudCuentasActivity"></activity>
+        <activity android:name=".SolicitudCuentasActivity" />
+        <activity android:name=".ListaCuentasActivity"></activity>
     </application>
 
 </manifest>

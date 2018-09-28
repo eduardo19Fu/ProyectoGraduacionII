@@ -16,6 +16,6 @@ public interface CuentaService {
     Call<List<Cuenta>> getCuentas(@Query("usuario_lectura") String lector, @Query("dia") int dia);
 
     @GET("/persona")
-    Call<List<Persona>> getPersonas(@Query("usuario") String lector, @Query("dia") int dia);
+    Call<List<Persona>> getPersonas(@Query("usuario_lectura") String lector, @Query("dia") int dia);
 
 }
