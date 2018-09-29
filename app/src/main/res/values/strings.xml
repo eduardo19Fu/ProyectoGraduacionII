@@ -37,5 +37,13 @@
     <string name="btn_listar">Listar Cuentas</string>
     <string name="txt_lector">Lector</string>
     <string name="txt_dia_visita">Dia de Visita</string>
+    
+    <!-- Strings Activity Creacion de Lectura -->
+    <string name="tv_clave">Clave:</string>
+    <string name="tv_no_contador">No. Contador:</string>
+    <string name="tv_lectura">Lectura Anterior:</string>
+    <string name="tv_consumo">Consumo:</string>
+    <string name="tv_cargo_consumo">Cargo Consumo:</string>
+
 
 </resources>
