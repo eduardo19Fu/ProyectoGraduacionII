@@ -70,26 +70,59 @@ public class CuentaController {
             cuenta.setClave(cursor.getString(1));
             cuenta.setNo_contador(cursor.getString(2));
             cuenta.setDireccion(cursor.getString(3));
-            cuenta.setOrden_lectura(cursor.getInt(4));
-            cuenta.setMarchamo(cursor.getString(5));
-            cuenta.setTipo_servicio(cursor.getString(6));
-            cuenta.setIdpersona(cursor.getInt(7));
-            cuenta.setVoltios_solicitados(cursor.getInt(8));
-            cuenta.setLectura_acumulada(cursor.getInt(9));
-            cuenta.setEstado(cursor.getString(10));
-            cuenta.setZona(cursor.getString(11));
-            cuenta.setDia_visita(cursor.getInt(12));
-            cuenta.setReferecia(cursor.getString(13));
-            cuenta.setUsuario_lectura(cursor.getString(14));
-            cuenta.setFecha_siguiente_visita(new Date(cursor.getLong(15)));
-            cuenta.setPotencia_contratada(cursor.getInt(16));
-            cuenta.setPoste(cursor.getString(17));
-            cuenta.setLatitud(cursor.getString(18));
-            cuenta.setLongitud(cursor.getString(19));
+            cuenta.setIdbarrio(cursor.getInt(4));
+            cuenta.setOrden_lectura(cursor.getInt(5));
+            cuenta.setMarchamo(cursor.getString(6));
+            cuenta.setTipo_servicio(cursor.getString(7));
+            cuenta.setIdpersona(cursor.getInt(8));
+            cuenta.setVoltios_solicitados(cursor.getInt(9));
+            cuenta.setLectura_acumulada(cursor.getInt(10));
+            cuenta.setEstado(cursor.getString(11));
+            cuenta.setZona(cursor.getString(12));
+            cuenta.setDia_visita(cursor.getInt(13));
+            cuenta.setReferecia(cursor.getString(14));
+            cuenta.setUsuario_lectura(cursor.getString(15));
+            cuenta.setFecha_siguiente_visita(new Date(cursor.getLong(16)));
+            cuenta.setPotencia_contratada(cursor.getInt(17));
+            cuenta.setPoste(cursor.getString(18));
+            cuenta.setLatitud(cursor.getString(19));
+            cuenta.setLongitud(cursor.getString(20));
 
             lista.add(cuenta);
         }
         db.close();
         return lista;
     }
+
+    public Cuenta read(String clave){
+        SQLiteDatabase db = conexion.getReadableDatabase();
+        cuenta = new Cuenta();
+        Cursor cursor = db.rawQuery("select * from " + Utilidades.TABLA_CUENTA + " where clave = ?", new String[] {clave});
+        cursor.moveToNext();
+        cuenta.setIdcuenta(cursor.getInt(0));
+        cuenta.setClave(cursor.getString(1));
+        cuenta.setNo_contador(cursor.getString(2));
+        cuenta.setDireccion(cursor.getString(3));
+        cuenta.setIdbarrio(cursor.getInt(4));
+        cuenta.setOrden_lectura(cursor.getInt(5));
+        cuenta.setMarchamo(cursor.getString(6));
+        cuenta.setTipo_servicio(cursor.getString(7));
+        cuenta.setIdpersona(cursor.getInt(8));
+        cuenta.setVoltios_solicitados(cursor.getInt(9));
+        cuenta.setLectura_acumulada(cursor.getInt(10));
+        cuenta.setEstado(cursor.getString(11));
+        cuenta.setZona(cursor.getString(12));
+        cuenta.setDia_visita(cursor.getInt(13));
+        cuenta.setReferecia(cursor.getString(14));
+        cuenta.setUsuario_lectura(cursor.getString(15));
+        cuenta.setFecha_siguiente_visita(new Date(cursor.getLong(16)));
+        cuenta.setPotencia_contratada(cursor.getInt(17));
+        cuenta.setPoste(cursor.getString(18));
+        cuenta.setLatitud(cursor.getString(19));
+        cuenta.setLongitud(cursor.getString(20));
+
+        db.close();
+        return cuenta;
+    }
+
 }
