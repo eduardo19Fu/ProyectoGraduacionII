@@ -6,53 +6,176 @@
     android:layout_height="match_parent"
     tools:context=".NormalActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/tv_clave"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txt_clave"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:textStyle="normal|bold"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/tv_no_contador"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_clave"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
 
-    <TextView
-        android:id="@+id/txt_contador"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/txt_clave" />
+            <TextView
+                android:id="@+id/txt_clave"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="150dp"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/tv_no_contador"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="66dp" />
+
+            <TextView
+                android:id="@+id/txt_contador"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="35dp"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/txt_clave" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="70dp"
+                android:text="@string/tv_direccion"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txt_direccion"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="150dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="105dp"
+                android:text="@string/tv_poste"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txt_poste"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="150dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="160dp"
+                android:text="@string/tv_lectura"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txt_lectura_anterior"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="160dp"
+                android:layout_marginLeft="150dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="210dp"
+                android:text="@string/tv_lectura_act"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/txt_lectura_act"
+                android:layout_width="235dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="200dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="14dp"
+                tools:layout_editor_absoluteX="94dp"
+                tools:layout_editor_absoluteY="200dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="260dp"
+                android:text="@string/tv_consumo"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txt_consumo"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="260dp"
+                android:layout_marginLeft="150dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="310dp"
+                android:text="@string/tv_observaciones"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="235dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="300dp"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/button_calcular"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="370dp"
+                android:text="@string/btn_calcular"
+                android:background="#1c8c00"
+                android:textColor="#ffffff"/>
+
+            <Button
+                android:id="@+id/button_guardar_lect"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_guardar"
+                android:layout_marginTop="370dp"
+                android:layout_marginLeft="200dp"
+                android:background="#1c8c00"
+                android:textColor="#ffffff"/>
+
+        </RelativeLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -20,6 +20,7 @@ public class ConexionSQLite extends SQLiteOpenHelper{
         sigees.execSQL(Utilidades.CREAR_TABLA_TARIFA);
         sigees.execSQL(Utilidades.CREAR_TABLA_CUENTA);
         sigees.execSQL(Utilidades.CREAR_TABLA_PERSONA);
+        sigees.execSQL(Utilidades.CREAR_TABLA_LECTURA);
     }
 
     @Override
@@ -27,6 +28,7 @@ public class ConexionSQLite extends SQLiteOpenHelper{
         sigees.execSQL("DROP TABLE IF EXISTS tarifa");
         sigees.execSQL("DROP TABLE IF EXISTS cuenta");
         sigees.execSQL("DROP TABLE IF EXISTS persona");
+        sigees.execSQL("DROP TABLE IF EXISTS lectura");
         onCreate(sigees);
     }
 }

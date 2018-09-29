@@ -30,7 +30,8 @@
         <activity android:name=".SolicitudCuentasActivity" />
         <activity android:name=".ListaCuentasActivity" />
         <activity android:name=".NormalActivity" />
-        <activity android:name=".DemaActivity"></activity>
+        <activity android:name=".DemaActivity" />
+        <activity android:name=".ListaLecturasActivity"></activity>
     </application>
 
 </manifest>

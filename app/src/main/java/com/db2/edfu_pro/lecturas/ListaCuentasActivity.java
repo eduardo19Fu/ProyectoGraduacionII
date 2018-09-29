@@ -44,8 +44,9 @@ public class ListaCuentasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String clave = listaCuentas.get(i).getClave();
                 if(!listaCuentas.get(i).getTipo_servicio().equals("DEMANDA")) {
-                    Log.i("valor",listaCuentas.get(i).getTipo_servicio());
-                    Intent intent = new Intent(getApplicationContext(),NormalActivity.class);
+                    //Log.i("valor",listaCuentas.get(i).getTipo_servicio());
+                    Intent intent = new Intent(ListaCuentasActivity.this,NormalActivity.class);
+                    intent.putExtra("idcuenta",listaCuentas.get(i).getIdcuenta());
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"Es de demanda", Toast.LENGTH_SHORT).show();
