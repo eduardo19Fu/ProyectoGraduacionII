@@ -3,6 +3,7 @@ package controladores;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -75,5 +76,44 @@ public class LecturaController {
         db.close();
         return lista;
 
+    }
+
+    public Lectura read(int idcuenta){
+        SQLiteDatabase db = conexion.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + Utilidades.TABLA_LECTURA + " where idcuenta = ?", new String[] {String.valueOf(idcuenta)});
+        cursor.moveToNext();
+        lectura = new Lectura();
+
+        lectura.setIdregistro(cursor.getInt(0));
+        lectura.setIdcuenta(cursor.getInt(1));
+        lectura.setEnergia_consumida(cursor.getInt(2));
+        lectura.setValor_consumo(cursor.getDouble(3));
+        lectura.setCargo_fijo(cursor.getDouble(4));
+        lectura.setAlumbrado(cursor.getDouble(5));
+        lectura.setIva(cursor.getDouble(6));
+        lectura.setCargo_potencia_max(cursor.getDouble(7));
+        lectura.setCargo_potencia_contratada(cursor.getDouble(8));
+        lectura.setTipo_tarifa(cursor.getString(9));
+        lectura.setUsuario_lectura(cursor.getString(10));
+        lectura.setTotal(cursor.getDouble(11));
+        lectura.setFecha_lectura(new Date(cursor.getLong(12)));
+        lectura.setLectura_anterior(cursor.getInt(13));
+        lectura.setLectura_actual(cursor.getInt(14));
+
+        db.close();
+        return lectura;
+    }
+
+    public int maxid(){
+        SQLiteDatabase db = conexion.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select max(idregistro) from lectura",null);
+        cursor.moveToNext();
+
+        int maximo;
+        if(cursor == null)
+            maximo = 0;
+        else
+            maximo = cursor.getInt(0);
+        return maximo;
     }
 }

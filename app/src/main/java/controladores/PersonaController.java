@@ -1,6 +1,7 @@
 package controladores;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.Date;
@@ -9,6 +10,8 @@ import java.util.List;
 import modelos.Persona;
 
 public class PersonaController {
+
+    private Persona persona;
 
     ConexionSQLite conexion;
 
@@ -39,6 +42,25 @@ public class PersonaController {
         }
         db.close();
         return rs;
+    }
+
+    public Persona read(int idpersona){
+        SQLiteDatabase db = conexion.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from persona where idpersona = ?", new String[] {String.valueOf(idpersona)});
+        cursor.moveToNext();
+
+        persona = new Persona();
+        persona.setIdpersona(cursor.getInt(0));
+        persona.setNombre(cursor.getString(1));
+        persona.setApellido(cursor.getString(2));
+        persona.setFecha_creacion(new Date(cursor.getLong(3)));
+        persona.setNit(cursor.getString(4));
+        persona.setIdentificacion(cursor.getString(5));
+        persona.setTipo_identificacion(cursor.getString(6));
+        persona.setCorreo_electronico(cursor.getString(7));
+        persona.setTelefono(cursor.getString(8));
+
+        return persona;
     }
 
 }

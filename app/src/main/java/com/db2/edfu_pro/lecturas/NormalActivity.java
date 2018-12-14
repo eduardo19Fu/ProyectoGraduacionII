@@ -89,6 +89,10 @@ public class NormalActivity extends AppCompatActivity {
             tarifa = tc.read("BTSS");
             if(tarifa != null){
                 double valor_consumo = (consumo * tarifa.getValor());
+                /*if(lc.maxid() == 0)
+                    lectura.setIdregistro(1);
+                else
+                    lectura.setIdregistro(lc.maxid() + 1);*/
                 lectura.setIdcuenta(idcuenta);
                 lectura.setEnergia_consumida(consumo);
                 lectura.setAlumbrado(tarifa.getAlumbrado_publico());
