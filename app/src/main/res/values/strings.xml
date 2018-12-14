@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Lecturas</string>
-    <string name="txt_view_ingreso">Ingreso de Usuario</string>
+    <string name="txt_view_ingreso">Ingreso</string>
     <string name="txt_hint_usuario">Usuario</string>
     <string name="txt_hint_password">Password</string>
     <string name="button_ingreso">Ingresar</string>
@@ -37,13 +37,22 @@
     <string name="btn_listar">Listar Cuentas</string>
     <string name="txt_lector">Lector</string>
     <string name="txt_dia_visita">Dia de Visita</string>
-    
+
     <!-- Strings Activity Creacion de Lectura -->
     <string name="tv_clave">Clave:</string>
     <string name="tv_no_contador">No. Contador:</string>
     <string name="tv_lectura">Lectura Anterior:</string>
     <string name="tv_consumo">Consumo:</string>
     <string name="tv_cargo_consumo">Cargo Consumo:</string>
+    <string name="tv_direccion">Dirección:</string>
+    <string name="tv_poste">Poste:</string>
+    <string name="tv_lectura_act">Lectura:</string>
+    <string name="tv_observaciones">Observación:</string>
+    <string name="btn_calcular">Calcular</string>
+    <string name="tv_nombre">Nombre:</string>
 
-
+    <!-- Strings fragment lecturas -->
+    <string name="btn_consultar">Consultar</string>
+    <string name="btn_sincronizar">Sincronizar</string>
+    <string name="tv_fecha_lectura">Fecha:</string>
 </resources>

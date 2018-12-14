@@ -94,10 +94,10 @@ public class CuentaController {
         return lista;
     }
 
-    public Cuenta read(String clave){
+    public Cuenta read(int idcuenta){
         SQLiteDatabase db = conexion.getReadableDatabase();
         cuenta = new Cuenta();
-        Cursor cursor = db.rawQuery("select * from " + Utilidades.TABLA_CUENTA + " where clave = ?", new String[] {clave});
+        Cursor cursor = db.rawQuery("select * from " + Utilidades.TABLA_CUENTA + " where idcuenta = ?", new String[] {String.valueOf(idcuenta)});
         cursor.moveToNext();
         cuenta.setIdcuenta(cursor.getInt(0));
         cuenta.setClave(cursor.getString(1));

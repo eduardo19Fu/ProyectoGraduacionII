@@ -101,5 +101,38 @@ public class Utilidades {
                                                     +")";
 
     // Constantes campos de tabla Lectura
+    public static final String TABLA_LECTURA = "lectura";
+    public static final String ID_REGISTRO = "idregistro";
+    public static final String ID_CUENTA2 = "idcuenta";
+    public static final String ENERGIA_CONSUMIDA = "energia_consumida";
+    public static final String CARGO_CONSUMO = "cargo_energia_consumida";
+    public static final String CARGO_FIJO2 = "cargo_fijo";
+    public static final String CARGO_ALUMBRADO = "cargo_alumbrado_publico";
+    public static final String CARGO_IVA = "iva";
+    public static final String CARGO_POTENCIA_MAXIMA = "cargo_potencia_maxima";
+    public static final String CARGO_POTENCIA_CONTRATADA = "cargo_potencia_contratada";
+    public static final String TIPO_TARIFA = "tipo_tarifa";
+    public static final String USUARIO_LECTURA = "usuario_lectura";
+    public static final String TOTAL = "total";
+    public static final String FECHA_LECTURA = "fecha_lectura";
+    public static final String LECTURA_ANT = "lectura_anterior";
+    public static final String LECTURA_ACT = "lectura_actual";
 
+    public static final String CREAR_TABLA_LECTURA = "CREATE TABLE " + TABLA_LECTURA + "("
+                                                        +ID_REGISTRO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                                        +ID_CUENTA2 + " INTEGER, "
+                                                        +ENERGIA_CONSUMIDA + " INTEGER, "
+                                                        +CARGO_CONSUMO + " REAL, "
+                                                        +CARGO_FIJO2 + "REAL, "
+                                                        +CARGO_ALUMBRADO + " REAL, "
+                                                        +CARGO_IVA + " REAL, "
+                                                        +CARGO_POTENCIA_MAXIMA + " REAL, "
+                                                        +CARGO_POTENCIA_CONTRATADA + " REAL, "
+                                                        +TIPO_TARIFA + " TEXT, "
+                                                        +USUARIO_LECTURA + " TEXT, "
+                                                        +TOTAL + " REAL, "
+                                                        +FECHA_LECTURA + " DATE, "
+                                                        +LECTURA_ANT + " INTEGER, "
+                                                        +LECTURA_ACT + " INTEGER"
+                                                    +")";
 }

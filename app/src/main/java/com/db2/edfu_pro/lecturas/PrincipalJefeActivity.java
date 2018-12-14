@@ -89,6 +89,8 @@ public class PrincipalJefeActivity extends AppCompatActivity
             startActivity(new Intent(this,MainActivity.class));
         }else if(id == R.id.nav_cuentas){
             fragment.beginTransaction().replace(R.id.contenedor, new CuentasFragment()).commit();
+        }else if(id == R.id.nav_lecturas){
+            fragment.beginTransaction().replace(R.id.contenedor, new OpcionesLecturaFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

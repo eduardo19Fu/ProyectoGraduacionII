@@ -47,7 +47,7 @@ public class SocialActivity extends AppCompatActivity {
         tarifa = new Tarifa();
 
         tarifa.setIdtipo(1);
-        tarifa.setTipo_tarifa("SOCIAL");
+        tarifa.setTipo_tarifa("BTSS");
         tarifa.setValor_inicial(0);
         tarifa.setValor_final(300);
         tarifa.setValor(Double.parseDouble(et_valor.getText().toString()));
